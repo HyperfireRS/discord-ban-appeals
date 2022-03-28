@@ -36,7 +36,7 @@ export async function handler(event, context) {
             return {
                 statusCode: 303,
                 headers: {
-                    "Location": `/error?msg=${encodeURIComponent("You cannot submit ban appeals with this Discord account.")}`,
+                    "Location": `/error?msg=${encodeURIComponent("You are banned from appeals.")}`,
                 },
             };
         }
@@ -91,10 +91,14 @@ export async function handler(event, context) {
                 message.components = [{
                     type: 1,
                     components: [{
+//                        type: 2,
+//                        style: 5,
+//                        label: "Approve appeal and unban user",
+//                        url: `${unbanUrl.toString()}?token=${encodeURIComponent(createJwt(unbanInfo))}`
                         type: 2,
                         style: 5,
-                        label: "Approve appeal and unban user",
-                        url: `${unbanUrl.toString()}?token=${encodeURIComponent(createJwt(unbanInfo))}`
+                        label: "Staff Command Channel",
+                        url: `https://discord.com/channels/799443569848745984/846392171569610832`
                     }]
                 }];
             }
