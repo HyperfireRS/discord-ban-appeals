@@ -20,6 +20,7 @@ export async function handler(event, context) {
         payload = {
             banReason: params.get("banReason") || undefined,
             appealText: params.get("appealText") || undefined,
+            wasJustified: params.get("wasJustified") || undefined,
             futureActions: params.get("futureActions") || undefined,
             token: params.get("token") || undefined
         };
