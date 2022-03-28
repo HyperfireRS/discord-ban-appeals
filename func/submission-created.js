@@ -22,6 +22,7 @@ export async function handler(event, context) {
             appealText: params.get("appealText") || undefined,
             wasJustified: params.get("wasJustified") || undefined,
             futureActions: params.get("futureActions") || undefined,
+            email: params.get("email") || undefined,
             token: params.get("token") || undefined
         };
     }
@@ -49,6 +50,10 @@ export async function handler(event, context) {
                     {
                         name: "Submitter",
                         value: `<@${userInfo.id}> (${userInfo.username}#${userInfo.discriminator})`
+                    },
+                    {
+                        name: "Email",
+                        value: payload.email.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
                     {
                         name: "Why were you banned?",
