@@ -58,6 +58,10 @@ export async function handler(event, context) {
                         value: payload.appealText.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
                     {
+                        name: "Why do you feel you should be unbanned?",
+                        value: payload.wasJustified.slice(0, MAX_EMBED_FIELD_CHARS)
+                    },
+                    {
                         name: "What will you do to avoid being banned in the future?",
                         value: payload.futureActions.slice(0, MAX_EMBED_FIELD_CHARS)
                     }
