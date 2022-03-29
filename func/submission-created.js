@@ -23,7 +23,8 @@ export async function handler(event, context) {
             wasJustified: params.get("wasJustified") || undefined,
             futureActions: params.get("futureActions") || undefined,
             email: params.get("email") || undefined,
-            token: params.get("token") || undefined
+            token: params.get("token") || undefined,
+            punishmentid: params.get("punishmentid") || undefined
         };
     }
 
@@ -54,6 +55,10 @@ export async function handler(event, context) {
                     {
                         name: "Email",
                         value: payload.email.slice(0, MAX_EMBED_FIELD_CHARS)
+                    },
+                    {
+                        name: "Punishment ID",
+                        value: payload.punishmentid.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
                     {
                         name: "Why were you banned?",
