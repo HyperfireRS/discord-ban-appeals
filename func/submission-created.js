@@ -24,7 +24,8 @@ export async function handler(event, context) {
             futureActions: params.get("futureActions") || undefined,
             email: params.get("email") || undefined,
             token: params.get("token") || undefined,
-            punishmentid: params.get("punishmentid") || undefined
+            punishmentid: params.get("punishmentid") || undefined,
+            contactMethod: params.get("contactMethod") || undefined
         };
     }
 
@@ -57,6 +58,10 @@ export async function handler(event, context) {
                         value: payload.email.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
                     {
+                        name: "Prefered Contact Methor",
+                        value: payload.contactMethod.slice(0, MAX_EMBED_FIELD_CHARS)
+                    },
+                    {
                         name: "Punishment ID",
                         value: payload.punishmentid.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
@@ -73,7 +78,7 @@ export async function handler(event, context) {
                         value: payload.wasJustified.slice(0, MAX_EMBED_FIELD_CHARS)
                     },
                     {
-                        name: "What will you do to avoid being banned in the future?",
+                        name: "Do you agree to follow the rules in the future?",
                         value: payload.futureActions.slice(0, MAX_EMBED_FIELD_CHARS)
                     }
                 ]
